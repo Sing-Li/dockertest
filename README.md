@@ -19,6 +19,12 @@ These containers are designed to be:
 * compatible - with multi-GPU support maturing and batching still in testing, these containers should suvive upcoming changes without needing to be severely revamped. 
 * practical NOW - usable and deployable TODAY with 2024/2025 level workstation/consumer hardware and mlc-ai
 
+###  Quick Start
+
+1.  Make sure your system is one of the supported GPU drivers stack (cuda, rocm, and so on) and that you have the toolkit *and* container extension (docker support) already installed and tested
+1.  Go to `/rocm/rocm57`  or `/cuda/cuda122` and build the base docker image according to the README.md there.
+1. Run the command line chat or serve REST APIs immediately by running the scripts in the `/bin` directory, following the README.md there.
+
 ###  Structure
 
 Base containers are segregated by GPU acceleration stacks.  See the README of the sub-folders for more information
