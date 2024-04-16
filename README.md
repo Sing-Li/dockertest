@@ -21,7 +21,7 @@ These containers are designed to be:
 
 ###  Structure
 
-Containers are segregated by GPU acceleration stacks.  See the README of the sub-folders for more information
+Base containers are segregated by GPU acceleration stacks.  See the README of the sub-folders for more information
 ```
 cuda
 |-- cuda122
@@ -30,8 +30,15 @@ cuda
 rocm
 |-- rocm57
 
+bin
+
 test
 ```
+
+The `bin` folder has the template executables that will start the containers.
+
+The `test` folder contains the tests.
+
 ####  Community contribution
 
 This structure enables the greater community to easily contribute new tested templates for other cuda and rocm releases, for example.   
@@ -44,18 +51,20 @@ The latest improvement in JIT and SLM flow for MLC_LLM specifically addresses th
 
 Users of such images can simply decide to run "llama2 7b on cuda 12.2" and in one single command immediately pull down an image onto their workstation running AI apps served by Llama 2 already GPU accelerated.    The weights are downloaded directly from huggingface and converted _specifically for her/his GPU hardware and OS_  the first time the command is executed;  any subsequent invocation can start _instantly_ using the already converted weights.
 
-One container template is supplied for REST API serving, and another one is available for interactive command line chat with any supported LLMs.
+As an example the command to start an interactive chat with this LLM on Cuda 1.22 accelerated Linux is:
 
+```
+startcuda122chat.sh Llama-2-7b-chat-hf-q4f32_1
+```
+
+One container template is supplied for REST API serving, and another one is available for interactive command line chat with any supported LLMs.
 
 
 ##### Compatibility with future improvements
 
 There is no loss of flexibility in using these containers, the REST API implementation already support batching - the ability to handle multiple concurrent inferences at the same time. And any future improvements in MLC_AI will be 
 
-#### Unbundled containers
-
-Non-bundled container is coded by default to serve _llama2 7b q4f16_, but you can change the command line during `docker run` to have it serve any supported mlc-llms.  Yes, you will have to download the weights and build the library yourself and place them in the docker mounted volume.  See `red pajama` examples in the `test` directory.
-
 #### Tests
+
 Tests are made global as they apply to mlc_ai running across any supported GPU configurations. 
  
