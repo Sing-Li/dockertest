@@ -7,12 +7,14 @@ The `<model name>` that are supported (at any time) can be obtained from [MLC AI
 
 ![image](https://github.com/Sing-Li/dockertest/assets/122633/e1068b42-cfe1-4385-8c71-0791d2987d8b)
 
-Some currently popular `model names` that our community is actively exploring are:
+Some currently popular `model names` that our community are actively exploring include:
 
-`Llama-2-7b-chat-hf-q4f16_1`
-`Mistral-7B-Instruct-v0.2-q4f16_1`
-`gemma-7b-it-q4ff16_2`
-`phi-1_5_q4f32_1`
+* `Llama-2-7b-chat-hf-q4f16_1`
+* `Mistral-7B-Instruct-v0.2-q4f16_1`
+* `gemma-7b-it-q4ff16_2`
+* `phi-1_5_q4f32_1`
+
+Try using these `<model name>` when parameterizing the scripts.
 
 You can modify the `serve` scripts directly to support specific network interfaces (on a multi-homed system, defaults to `0.0.0.0` = all interfaces) and to change the listening port (defaults to port `8000`).
 
